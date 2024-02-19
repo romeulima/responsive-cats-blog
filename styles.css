@@ -1,242 +1,189 @@
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-:root{
-    font-size: 62.5%;
-
-    --color-base-blue-500: #387E96;
-    --color-base-blue-700: #065E7C;
 }
 
 html, body, input{
     font-family: 'Mulish', sans-serif;
 }
 
+:root {
+    font-size: 62.5%;
+
+    --bg-primary-color: hsl(195, 91%, 25%);
+    --bg-secondary-color: #387E96;
+    --input-bg-color: hsla(0, 0%, 100%, 0.2);
+    --input-placeholder-color: hsl(0, 0%, 100%);
+}
+
 body{
     font-size: 1.6rem;
-    background-color: var(--color-base-blue-700);
+    height: 100vh;
 }
 
-.app{
+.page {
     display: grid;
-    grid-template-rows: min-content max-content min-content;
-    min-height: 100vh;
+    grid-template-rows: max-content 1fr max-content;
+    height: 100%;
 }
 
-.container{
-    width: min(130.5rem, 100%);
-    padding: 1.6rem 3.2rem;
-    margin-inline: auto;
+.header{
+    background-color: var(--bg-primary-color);
+    padding: 1.2rem 2.8rem;
 }
 
-header{
+.header-content{
     display: flex;
     align-items: center;
-    gap: 2.5rem;
-}
-
-header > img{
-    cursor: pointer;
+    justify-content: center;
+    gap: 2.4rem;
 }
 
 form{
     flex: 1;
 }
 
-.input-wrapper label{
+.header-content .search-label{
     width: 1px;
     height: 1px;
     overflow: hidden;
     position: absolute;
 }
 
-.input-wrapper input{
+.header-content .search-input{
     width: 100%;
-    height: 4rem;
-
-    padding: 0 1.4rem;
-
+    padding: 1.2rem 1.6rem 1.2rem 1.4rem;
+    
     border: none;
-    border-radius: .4rem;
+    border-radius: 4px;
 
-    background-color: rgba(255, 255, 255, 20%);
+    background-color: var(--input-bg-color);
 
     font-size: 1.6rem;
-    line-height: 100%;
-    color: white;
     font-weight: 600;
-    
+    color: var(--input-placeholder-color);
 }
 
-.input-wrapper input::placeholder{
-    color: white;
+.header-content .search-input::placeholder{
+    color: var(--input-placeholder-color);
 }
 
-.input-wrapper input:focus{
-    outline: 2px solid rgba(255, 255, 255, 40%);
-}
-
-main{
-    background-color: #fff;
-}
-
-section{
-    display: grid;
-    grid-template-columns: repeat(9, minmax(0, 1fr));
-    grid-template-rows: repeat(6, minmax(0, 1fr));
-    column-gap: 3.2rem;
-
-    margin-top: 2.4rem;
-}
-
-section > div.left #gato{
-    width: 100%;
+.header .avatar{
+    width: 4rem;
+    height: 4rem;
     object-fit: cover;
-    overflow: hidden;
+    border-radius: 50%;
 }
 
-.left{
-    grid-column: span 6 / span 6;
-    grid-row: span 6 / span 6;
+.content{
+    display: grid;
+    gap: 3.4rem;
 }
 
-.left p{
-    margin-top: 3.2rem;
-    font-size: 1.6rem;
-    line-height: 160%;
-
-    padding-bottom: 3.8rem;
-}
-
-.cabecalho{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 3.2rem;
-}
-
-.cabecalho h1{
-    font-size: 2.4rem;
-    line-height: 160%;
-}
-
-.symbols img + img{
-    margin-left: 1.2rem;
-}
-
-.symbols #like, .symbols #deslike{
-    cursor: pointer;
-}
-
-aside{
-    grid-column: span 3 / span 3;
-    grid-row: span 6 / span 6;
+.article-header figure .figure-img{
+    display: block;
     
-    height: 100%;
+    width: 100%;
+    
+    aspect-ratio: 16/9;
+    
+    object-fit: cover;
 }
 
-aside .artigos{
+.article-header .headline{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: .8rem;
 
-    margin-top: 2rem;
+    padding: 3.1rem 2.2rem;
 }
 
-aside h1{
+.headline h1{
     font-size: 2.4rem;
     line-height: 160%;
 }
 
-figure{
+.headline .buttons{
     display: flex;
     align-items: center;
+    gap: 1.2rem;
+}
+
+.article-text, .sidebar{
+    padding: 0 2.6rem 0 2.2rem;
+}
+
+.article-text p{
+    font-size: 1.6rem;
+    line-height: 160%;
+    font-weight: 400;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    padding-bottom: .8rem;
+}
+
+.sidebar-section{
+    display: grid;
+    gap: 3.2rem;
+}
+
+.sidebar-section h2{
+    font-size: 2.4rem;
+    line-height: 160%;
+}
+
+.sidebar-figure{
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    grid-template-rows: 8.4rem;
     gap: 1.6rem;
 }
 
-figure img{
-    width: 15.1rem;
-    height: 8.4rem;
-    cursor: pointer;
+.sidebar-figure .sidebar-img{
+    border-radius: .6rem;
+    overflow: hidden;
 }
 
-figure figcaption h2{
+.sidebar-figure .sidebar-img img{
+    display: block;
+    object-fit: cover;
+
+    object-position: center 20%;
+
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar-figcaption{
+    display: grid;
+}
+
+.figcaption-title{
     font-size: 1.8rem;
-    line-height: 160%;
 }
 
-figure figcaption p{
+.figcaption-paragraph{
     font-size: 1.4rem;
-    line-height: 160%;
+    font-weight: 400;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
-footer p{
+footer{
+    color: var(--input-placeholder-color);
     text-align: center;
-    padding: 1rem;
-    
-    color: #fff;
+    background-color: var(--bg-secondary-color);
+
+    padding: 2.6rem;
 }
-
-@media (max-width: 1200px) {
-    
-    section{
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
-    
-    .cabecalho{
-        display: block;
-    }
-
-    .cabecalho h1{
-        font-size: 1.8rem;
-        margin-bottom: .8rem;
-    }
-
-    .symbols img + img{
-        margin-left: .8rem;
-    }
-
-    .left p{
-        margin-top: 2.4rem;
-        padding-bottom: 2.8rem;
-    }
-
-    aside{
-        grid-column: span 6 / span 6;
-    }
-
-    aside h1{
-        margin-bottom: 2rem;
-        font-size: 1.8rem;
-    }
-
-    figure figcaption h2{
-        font-size: 1.1rem;
-        line-height: 160%;
-    }
-    
-    figure figcaption p{
-        font-size: 1rem;
-        line-height: 160%;
-    }
-
-    .input-wrapper input{
-        font-size: 1.2rem;
-        line-height: 100%;
-    }
-
-    header .logo, header form + img, #like, #deslike{
-        width: 3.5rem;
-    }
-
-    footer p{
-        font-size: 1.4rem;
-    }
-}   
