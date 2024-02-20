@@ -41,6 +41,8 @@ body{
     gap: 2.4rem;
 }
 
+
+
 form{
     flex: 1;
 }
@@ -107,7 +109,6 @@ form{
 
 .headline .buttons{
     display: flex;
-    align-items: center;
     gap: 1.2rem;
 }
 
@@ -125,11 +126,11 @@ form{
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
-    padding-bottom: .8rem;
+    padding-bottom: 4rem;
 }
 
 .sidebar-section{
-    display: grid;
+    display: grid;                                  
     gap: 3.2rem;
 }
 
@@ -186,4 +187,48 @@ footer{
     background-color: var(--bg-secondary-color);
 
     padding: 2.6rem;
+}
+
+
+@media (min-width:1400px) {
+
+    .header-content, .content, .headline, .article-text, .sidebar-section{
+        max-width: 121.8rem;
+        margin: 0 auto;
+    }
+    
+    .content{
+        grid-template-areas: 
+        "main sidebar" ;
+
+        padding: 4.4rem 0 3.8rem;
+    }
+
+    main{
+        grid-area: main;
+    }
+
+    .sidebar-section{
+        max-width: 38rem;
+    }
+
+    .article-header .headline{
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 3.2rem 0;
+    }
+
+    article .article-text{
+        padding: initial;
+    }
+
+    .sidebar{
+        padding: initial;
+        grid-area: sidebar;
+    }
+
+    .article-header .main-figure{
+        border-radius: 5px;
+        overflow: hidden;
+    }
 }
